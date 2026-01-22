@@ -1,0 +1,50 @@
+# API Configuration
+api:
+  openai_api_key: "your-openai-api-key-here"
+  base_url: "https://api.openai.com/v1"
+  gemini_api_key: "your-gemini-api-key-here"
+  anthropic_api_key: "your-anthropic-api-key-here"
+
+# Default Model Configuration
+defaults:
+  model: "gpt-5.2"  # Default model (can be gpt-5.2, gemini-2.0-flash-exp, etc.)
+  temperature: 0.7
+  max_tokens: 4096
+  
+# Video Processing Configuration
+video_processing:
+  default_fps: 1.0  # Default frames per second for sampling
+  supported_formats:
+    - "mp4"
+    - "avi"
+    - "mov"
+    - "mkv"
+    - "flv"
+    - "wmv"
+    - "webm"
+  max_frames: 100  # Maximum frames to extract (for cost control)
+  
+# Retry Configuration
+retry:
+  max_retries: 5
+  initial_backoff: 1.0  # seconds
+  max_backoff: 60.0  # seconds
+  backoff_multiplier: 2.0
+  
+# Queue Configuration
+queue:
+  max_queue_size: 100
+  worker_threads: 4
+  
+# Cache Configuration
+cache:
+  enabled: true
+  cache_file: "inference_cache.json"
+  
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: "openai_inference.log"
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  track_token_usage: true
+  track_costs: true
